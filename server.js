@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const { DB_URL } = require("./config");
 const authRoute = require("./routes/authRoute");
+const qbRoute = require("./routes/qbRoute");
 
 const app = express();
 const PORT = 3000;
@@ -23,6 +24,7 @@ db.once("open", () => {
 app.use(express.json());
 
 app.use("/user", authRoute);
+app.use("/qb", qbRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
